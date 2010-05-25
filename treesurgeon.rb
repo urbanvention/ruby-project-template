@@ -79,7 +79,11 @@ File.open(File.join(SPEC,"spec_helper.rb"), 'w') do |file|
   file << <<-EOF
 # spec_helper.rb ;; #{Time.now.year} (cc) Jan Riethmayer
 # This work is licensend under a Creative Commons Attribution 3.0 license.
-require File.expand_path(File.dirname(__FILE__) + "/../#{PROJECTNAME}.rb")
+project_root_folder = File.expand_path(File.dirname(__FILE__) + "/../")
+Dir["#\{project_root_folder}/*.rb"].each do |file|
+  require file
+end
+
 lib_folder = File.expand_path(File.dirname(__FILE__) + "/../lib/")
 Dir["#\{lib_folder}/*.rb"].each do |file|
   require file
