@@ -23,6 +23,10 @@ end
 
 File.open(MAIN, 'w') do |file|
   file << <<-EOF
+require "rubygems"
+require "bundler"
+Bundler.setup
+
 class #{PROJECTNAME.camelize}
   def foo
     "BAR"
@@ -51,6 +55,12 @@ File.open(File.join(PROJECTNAME,".rspec"), 'w') do |file|
 EOF
 end
 
+File.open(File.join(PROJECTNAME,"Gemfile"), 'w') do |file|
+  file << <<-EOF
+source "http://rubygems.org"
+gem "rspec", ">=2.0.0.beta.13"
+EOF
+end
 
 File.open(File.join(SPEC,"#{PROJECTNAME}_spec.rb"), 'w') do |file|
   file << <<-EOF
