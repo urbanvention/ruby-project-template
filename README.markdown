@@ -15,12 +15,11 @@ All my scripts follow the same schema. To run my script with the given symlink:
     creating foo/lib
     creating foo/spec
     foo
-    |-- Rakefile
+    |-- .rspec        
     |-- foo.rb
     |-- lib
     `-- spec
         |-- foo_spec.rb
-        |-- spec.opts
         `-- spec_helper.rb
 
 ## License
